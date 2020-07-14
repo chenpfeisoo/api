@@ -17,6 +17,7 @@ limitations under the License.
 package v1
 
 import (
+	tkeInerSDK "github.com/TencentCloud/tencentcloud-sdk-go/tencentcloud/tke/v20180525"
 	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/types"
@@ -56,6 +57,9 @@ type VolumeSource struct {
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
 	// ---
 	// TODO(jonesdl) We need to restrict who can use host directory mounts and who can/can not
+	// QcloudCbs represents an Tencent Data Disk mount on the host and bind mount to the pod.
+	// +optional
+	QcloudCbs  *tkeInerSDK.TencentCbsVolume `json:"qcloudCbs,omitempty" protobuf:"bytes,22,opt,name=qcloudCbs"`
 	// mount host directories as read/write.
 	// +optional
 	HostPath *HostPathVolumeSource `json:"hostPath,omitempty" protobuf:"bytes,1,opt,name=hostPath"`
