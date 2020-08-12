@@ -287,6 +287,9 @@ type PersistentVolumeSource struct {
 	// CSI represents storage that is handled by an external CSI driver (Beta feature).
 	// +optional
 	CSI *CSIPersistentVolumeSource `json:"csi,omitempty" protobuf:"bytes,22,opt,name=csi"`
+        // QcloudCbs represents an Tencent Data Disk mount on the host and bind mount to the pod.
+        // +optional
+        QcloudCbs  *tkeInerSDK.TencentCbsVolume `json:"qcloudCbs,omitempty" protobuf:"bytes,22,opt,name=qcloudCbs"`
 }
 
 const (
